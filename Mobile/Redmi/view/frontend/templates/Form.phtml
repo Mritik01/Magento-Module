@@ -1,0 +1,10 @@
+<h1>Mobile Form</h1>
+
+
+<form action="<?= $block->getUrl('redmi/control/insert'); ?>" data-mage-init='{"validation":{}}' method="POST">
+    <label for="name" >Mobile Name:</label>
+    <input type="text" data-validate='{"required":true}' id="name" name="mobile_name"><br><br>
+    <label for="email">Mobile Model:</label>
+    <input type="text" data-validate='{"required":true}' id="email" name="model"><br><br>
+    <input type="submit" value="Submit">
+</form>

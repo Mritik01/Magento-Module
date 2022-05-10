@@ -1,0 +1,30 @@
+<h3><u>Mobile Listing</u></h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created Date</th>
+        <th>Action</th>
+    </tr>
+    <?php  
+        $data = $block->getResult();
+        foreach ($data as $key => $emp) { 
+    ?>
+    <tr>
+        <td><?php echo $emp['id']; ?></td>
+        <td><?php echo $emp['mobile_name']; ?></td>
+        <td><?php echo $emp['model']; ?></td>
+        <td><?php echo $emp['created_at']; ?></td>
+        <td> <a href="<?php echo $this->geturl('redmi/control/edit').'?id='.$emp['id'];?>">Edit</a>
+        <td> <a href="<?php echo $this->geturl('redmi/control/delete').'?id='.$emp['id'];?>">Delete</a>
+                
+    </tr>    
+    <?php }?>
+</table>
+
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom">
+        <?= $block->getPagerHtml() ?>
+    </div>
+<?php endif ?>

@@ -1,0 +1,62 @@
+
+<button><a href="<?php echo $this->geturl('redmi/control/test')?>">+ Add New</a></button>
+<?php
+// get custom data
+$custom_data = $block->getCustomData();
+
+?>
+<fieldset class="fieldset">
+    <?php
+    if (count($custom_data)) {
+        ?>
+        <div class="table-wrapper custom-data ">
+            <table class="data table table-data-items ">
+               
+                <thead>
+                    <tr>
+                        <th scope="col" class="col name">No.</th>
+                        <th scope="col" class="col name">Mobile Name</th>
+                        <th scope="col" class="col orders">Model</th>
+                        <th scope="col" class="col orderitem">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <?php $count=1; foreach ($custom_data as $item): ?>
+                    <tr>
+                        <td data-th="Name" class="col name">
+                         <span><?php echo $count ?></span>
+                        </td>
+                        <td data-th="Name" class="col name">
+                         <span><?php echo $item['mobile_name'] ?></span>
+                        </td>
+                        <td data-th="Orders" class="col orders">
+                            <span><?php echo $item['model']  ?></span>
+                        </td>
+                        <td data-th="Items" class="col orderitem">
+                            <span>
+                                <button>
+                                    <a href="<?php echo $this->geturl('redmi/control/edit').'?id='.$item->getId(['id']);?>">Edit</a>
+                                </button>&nbsp;
+                                <button>
+                                    <a href="<?php echo $this->geturl('redmi/control/delete').'?id='.$item->getId(['id']);?>"> Delete</a>
+                                </button>
+                            </span>
+                        </td>
+                    </tr>
+                    
+                <?php $count++; endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php if ($block->getPagerHtml()): ?>
+                <div class="order-products-toolbar toolbar bottom">
+                    <?= $block->getPagerHtml() ?>
+                </div>
+        <?php endif ?>
+    <?php } else { ?>
+                <div class="message info empty">
+                    <span><?= $block->escapeHtml('You have no data in table.') ?></span>
+                </div>
+    <?php  } ?>
+</fieldset>

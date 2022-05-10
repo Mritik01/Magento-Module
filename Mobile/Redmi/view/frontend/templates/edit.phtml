@@ -1,0 +1,12 @@
+<?php
+$data = $block->getEditData();
+?>
+
+<h1>Update Details</h1>
+<form action="<?= $block->getUrl('redmi/control/update').'?id='.$data['id']; ?>" method="POST">
+    <label for="name">Enter Your Name:</label>
+    <input type="text" id="name" name="mobile_name" value="<?php echo $data['mobile_name']; ?>"><br><br>
+    <label for="email">Enter Your Email Address:</label>
+    <input type="text" id="email" name="model" value="<?php echo $data['model']; ?>"><br><br>
+  <input type="submit" value="update">
+</form>
