@@ -1,0 +1,25 @@
+<h3><u>Employee Listing</u></h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created Date</th>
+        <th>Action</th>
+    </tr>
+    <?php  
+        $data = $block->getResult();
+        // echo("<pre>");
+        // print_r($data);die;
+        foreach ($data as $key => $emp) { 
+    ?>
+        <tr>
+            <td><?php echo $emp['id']; ?></td>
+            <td><?php echo $emp['name']; ?></td>
+            <td><?php echo $emp['email']; ?></td>
+            <td><?php echo $emp['created_at']; ?></td>
+            <td>Edit / Delete</td>
+  
+        </tr>    
+    <?php }?>
+</table>
